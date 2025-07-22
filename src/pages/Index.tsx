@@ -3,9 +3,18 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Icon from "@/components/ui/icon";
 import { useState } from "react";
+import useScrollAnimation from "@/hooks/useScrollAnimation";
 
 const Index = () => {
   const [chatOpen, setChatOpen] = useState(false);
+
+  const heroAnimation = useScrollAnimation({ threshold: 0.2 });
+  const aboutAnimation = useScrollAnimation({ threshold: 0.2 });
+  const servicesAnimation = useScrollAnimation({ threshold: 0.1 });
+  const portfolioAnimation = useScrollAnimation({ threshold: 0.1 });
+  const reviewsAnimation = useScrollAnimation({ threshold: 0.1 });
+  const blogAnimation = useScrollAnimation({ threshold: 0.1 });
+  const contactsAnimation = useScrollAnimation({ threshold: 0.1 });
 
   const services = [
     {
@@ -110,7 +119,13 @@ const Index = () => {
       </header>
 
       {/* Hero Section */}
-      <section id="home" className="pt-20 pb-16 bg-gradient-to-br from-primary-50 via-white to-secondary-50">
+      <section 
+        ref={heroAnimation.ref}
+        id="home" 
+        className={`pt-20 pb-16 bg-gradient-to-br from-primary-50 via-white to-secondary-50 transition-all duration-700 ${
+          heroAnimation.isVisible ? 'animate-fade-in-up' : 'opacity-0'
+        }`}
+      >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
@@ -167,7 +182,13 @@ const Index = () => {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 bg-gray-50">
+      <section 
+        ref={aboutAnimation.ref}
+        id="about" 
+        className={`py-20 bg-gray-50 transition-all duration-700 ${
+          aboutAnimation.isVisible ? 'animate-fade-in-up' : 'opacity-0'
+        }`}
+      >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">О нас</h2>
@@ -210,7 +231,13 @@ const Index = () => {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-20">
+      <section 
+        ref={servicesAnimation.ref}
+        id="services" 
+        className={`py-20 transition-all duration-700 ${
+          servicesAnimation.isVisible ? 'animate-fade-in-up' : 'opacity-0'
+        }`}
+      >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">Услуги</h2>
@@ -240,7 +267,13 @@ const Index = () => {
       </section>
 
       {/* Portfolio Section */}
-      <section id="portfolio" className="py-20 bg-gray-50">
+      <section 
+        ref={portfolioAnimation.ref}
+        id="portfolio" 
+        className={`py-20 bg-gray-50 transition-all duration-700 ${
+          portfolioAnimation.isVisible ? 'animate-fade-in-up' : 'opacity-0'
+        }`}
+      >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">Портфолио</h2>
@@ -277,7 +310,13 @@ const Index = () => {
       </section>
 
       {/* Reviews Section */}
-      <section id="reviews" className="py-20">
+      <section 
+        ref={reviewsAnimation.ref}
+        id="reviews" 
+        className={`py-20 transition-all duration-700 ${
+          reviewsAnimation.isVisible ? 'animate-fade-in-up' : 'opacity-0'
+        }`}
+      >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">Отзывы</h2>
@@ -314,7 +353,13 @@ const Index = () => {
       </section>
 
       {/* Blog Section */}
-      <section id="blog" className="py-20 bg-gray-50">
+      <section 
+        ref={blogAnimation.ref}
+        id="blog" 
+        className={`py-20 bg-gray-50 transition-all duration-700 ${
+          blogAnimation.isVisible ? 'animate-fade-in-up' : 'opacity-0'
+        }`}
+      >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">Блог</h2>
@@ -347,7 +392,13 @@ const Index = () => {
       </section>
 
       {/* Contacts Section */}
-      <section id="contacts" className="py-20">
+      <section 
+        ref={contactsAnimation.ref}
+        id="contacts" 
+        className={`py-20 transition-all duration-700 ${
+          contactsAnimation.isVisible ? 'animate-fade-in-up' : 'opacity-0'
+        }`}
+      >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">Контакты</h2>
